@@ -4,13 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import EmailIcon from '@material-ui/icons/Email';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import { NavLink } from 'react-router-dom';
-import logo from '../images/logo.svg';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import { connect } from 'react-redux';
 import { userService } from '../services'
 import { loginSuccess } from '../actions'
@@ -94,11 +87,7 @@ class Login extends React.Component {
 
         return (
             <div className="loginContainer">
-                <h1>
-                    <object>
-                        <img src={logo} alt="棟梁ドットコム" />
-                    </object>
-                </h1>
+                <h1>〇〇</h1>
                 <div className="loginBox">
                     <form autoComplete="off" onSubmit={this.handleSubmit}>
                         <h2>ログイン</h2>
