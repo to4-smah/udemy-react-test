@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import logoCompany from '../images/logo_company.svg'
-import Hidden from '@material-ui/core/Hidden';
 import { NavLink } from 'react-router-dom';
 const styles = {
     root: {
