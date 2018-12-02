@@ -1,0 +1,769 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro" , メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif !important;
+  /*background-color: #F2F2F2;*/
+  letter-spacing: 0.1em;
+  background-color: #fafafa;
+}
+
+/*
+ * common
+ */
+[role="button"] {
+  box-shadow:none !important;
+}
+[class*="MuiButton-containedPrimary"] {
+  padding:8px 50px !important;
+  background-color: #64B127 !important;
+}
+.formControl > div > div > label[data-shrink=true] {
+  color: #64B127 !important;
+}
+.formControl > div > div  > label + div:after {
+  border-bottom: 2px solid #64B127 !important;
+}
+svg{
+  color: #707070;
+}
+.show,
+.list {
+  box-shadow: 0px 1px .1px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.12) !important;
+}
+.contentHead {
+  margin-top: 2.0em;
+}
+.border1 {
+  border: 1px solid #C3C3C3;
+  padding: 1.5em;
+}
+header {
+  background-color: #fff !important;
+  /*min-height: 70px !important;*/
+  box-shadow: 0px 1px .1px -1px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.12) !important;
+}
+header h2 {
+  padding-top: .5vw;
+}
+header h2 img{
+  width: 150px !important;
+}
+header + div {
+  background-color: #40464D !important;
+
+}
+main {
+  padding: 40px !important;
+  max-width: 1000px !important;
+}
+main > div > h3 {
+  padding-top: 1.5em !important;
+}
+.displayBlock {
+  display: block;
+}
+
+.menuContainer {
+  -ms-overflow-style:none;
+  min-height: 70vw;
+  min-width: 270px;
+}
+.menuContainer::-webkit-scrollbar{
+  display:none;
+}
+
+.menuContainer > div{
+  height: 100%;
+  min-width: 270px;
+  background-color: #40464D !important;
+}
+
+.menuContainer footer,
+.menuContainer svg,
+.menuContainer span,
+.menuContainer div {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro" , メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif !important;
+  color: #FFFFFF !important;
+}
+.menuContainer svg {
+  font-size: 100%;
+
+}
+.menuContainer span{
+  font-size: 90%;
+
+}
+
+.menuContainer a {
+
+}
+.menuContainer a.active::after {
+  font-size: 30%;
+  content:'●';
+}
+.userArea {
+  background-color: #fff !important;
+  color: #000000 !important;
+  padding: 16px 16px !important;
+}
+.userArea span,
+.userArea svg {
+  color: #000000 !important;
+  vertical-align:middle;
+}
+.userArea svg {
+  margin-right: 16px !important;
+}
+
+.textCenter {
+  text-align: center;
+}
+.textRight {
+  text-align: right;
+}
+
+.colorSecondary{
+  color: rgba(0, 0, 0, 0.54);
+}
+.textBold {
+  font-weight: bold;
+}
+.textSmaller {
+  font-size: smaller;
+}
+.verticalBaseline {
+  vertical-align: baseline;
+}
+.listWarranty,
+.listLimit {
+  font-size: 0.875rem;
+}
+
+.label {
+  padding: 12px 31px;
+  font-size: 0.8125rem;
+  border-radius: 5px;
+  display: inline-block;
+
+}
+.labelSecondary {
+  background-color: #E4E4E4;
+  color: #575757;
+}
+
+.labelSuccess {
+  background-color: #59BE55;
+  color: #fff;
+  text-decoration: none;
+}
+.blankArea .labelSuccess {
+  min-width: 200px;
+  padding: 12px 0;
+}
+
+.blankArea .labelSecondary {
+  padding: 12px 56px;
+  border: none;
+}
+.blankArea a + a {
+  margin-left: 5em;
+}
+
+.labelSmall {
+  padding: 9px 18px;
+}
+
+
+.selectArea > div > div > div {
+  background-color: #fff;
+  padding: 5px 20px;
+  width: 200px;
+  border: 1px solid #DEDEDE;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro" , メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif !important;
+}
+.selectArea > div > div > div:hover:before{
+  border-bottom: none;
+}
+.selectArea > div > div > div:hover,
+.selectArea > div > div > div:before,
+.selectArea > div > div > div:after {
+  border-bottom: 1px solid #DEDEDE !important;
+}
+
+.flexibleBox{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+  align-items: center; /* 縦方向中央揃え */
+  -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+  justify-content: center; /* 横方向中央揃え */
+}
+
+.flexibleBoxAround{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+  align-items: center; /* 縦方向中央揃え */
+  -webkit-justify-content: space-around; /* 横方向中央揃え（Safari用） */
+  justify-content: space-around; /* 横方向中央揃え */
+}
+
+.actionArea {
+  background-color: #64B127;
+  color: #fff;
+}
+.actionArea .viewDetail {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+
+.blankArea {
+  display: flex;
+  justify-content: center;
+  margin: 3% auto;
+}
+
+.blankArea form {
+  padding: 0 10px;
+}
+
+/*
+ * show
+ */
+.show .content h4 {
+  font-size: 0.875rem;
+  margin-bottom: 0 !important;
+}
+.show .content p {
+  margin-top: 0 !important;
+}
+/**
+ * table
+ */
+.table {
+  /*padding: 60px 45px;*/
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.table tr {
+  margin: 10px;
+}
+.table th {
+  color: #808080;
+  font-weight: normal;
+  text-align: left;
+  padding: 10px;
+}
+.table td {
+  color: #000000;
+  padding: 10px;
+}
+/*
+ * ul ol
+ */
+ul.listDecimal {
+  list-style: decimal;
+}
+ul.listNoStyle {
+  list-style: none;
+  margin-left: -2em;
+}
+/*
+ * list Style
+ */
+.listTitle{
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+/*
+ * Quotation
+ */
+.listQuotation {
+  margin-top: 20px;
+  display: flex;
+}
+.listInfo {
+  margin: 4% 0 1%;
+  font-size: 0.875rem;
+  font-weight:normal;
+}
+.listQuotation:first-child {
+  margin-top: 0;
+}
+.listQuotation > div:first-child {
+  width: 75%;
+}
+.listQuotation > div:first-child + div {
+  width: 25%;
+}
+.output a svg {
+  vertical-align: bottom !important;
+}
+
+.show .priceTotal,
+.show .priceTotal th,
+.show .priceTotal td,
+.show .priceContent,
+.show .priceContent th,
+.show .priceContent td{
+  border: 1px solid #C3C3C3;
+  border-collapse: collapse;
+
+}
+.show .priceTotal th,
+.show .priceContent th {
+  background-color: #40464D;
+  color: #fff;
+  font-size: 0.8em;
+  padding: 1em 0.6em;
+}
+.show .priceTotal td,
+.show .priceContent td {
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 1em 0.6em;
+}
+.show .priceTotal td,
+.show .priceTotal th {
+  font-size: 1em;
+}
+.show .priceTotal .price:before{
+  content: '￥';
+  float: left;
+
+}
+.show .priceTotal .price:after{
+  content: '（税込）';
+}
+.priceTotal th {
+  width:30%;
+}
+.priceTotal td {
+  width:60%;
+}
+
+.priceContent .qList td:nth-child(1) {
+  width: 45%;
+}
+.priceContent .qList td:nth-child(2) {
+  width: 20%;
+}
+.priceContent .qList td:nth-child(3) {
+  width: 10%;
+}
+.priceContent .qList td:nth-child(4) {
+  width: 20%;
+}
+.note p {
+  font-weight: normal;
+}
+
+/*
+ * Dashboard
+ */
+.listDashboard {
+  margin-top: 20px;
+  display: flex;
+}
+.listDashboard > div:first-child {
+  width: 10%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+  align-items: center; /* 縦方向中央揃え */
+  -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+  justify-content: center; /* 横方向中央揃え */
+}
+.listDashboard > div:first-child + div {
+  width: 70%;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+.listDashboard > div:first-child + div + div {
+  width: 20%;
+}
+
+/*
+ * Construction
+ */
+.listConstruction {
+  margin-top: 20px;
+  display: flex;
+}
+.listConstruction .listInfo {
+  margin: 4% 0 1%;
+  font-size: 0.875rem;
+  font-weight:normal;
+}
+.listConstruction:first-child {
+  margin-top: 0;
+}
+.listConstruction > div:first-child {
+  width: 75%;
+}
+.listConstruction > div:first-child + div {
+  width: 25%;
+}
+
+/*
+ * Product
+ */
+.listProduct {
+  margin-top: 20px;
+  display: flex;
+}
+.listProduct .listInfo {
+  margin: 4% 0 1%;
+  font-size: 0.875rem;
+  font-weight:normal;
+}
+.listProduct:first-child {
+  margin-top: 0;
+}
+.listProduct > div:first-child {
+  width: 75%;
+}
+.listProduct > div:first-child + div {
+  width: 25%;
+}
+/*
+ * Account
+ */
+.listAccount .table th {
+  width: 30%;
+}
+.listAccount .table td {
+  width: 70%;
+}
+/*
+ * footer
+ */
+.footerContainer {
+  /*position: absolute;*/
+  bottom: 10px;
+  padding-top: 150px;
+  margin-top: -50px;
+}
+.footerBox {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.5em;
+  padding: 12px 24px;
+}
+.footerBox h2 img{
+  width: 200px;
+
+}
+footer.footerBox{
+  font-size: 0.6rem;
+}
+.footerBox h2{
+  margin: 8px 0;
+}
+.linksContainer {
+  padding-bottom: 0;
+}
+.linksContainer .links {
+  margin: 0;
+}
+.links a {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+.links a.active::after {
+  content: '';
+}
+main + .footerContainer {
+  background-color: #40464D !important;
+  color: #FFF !important;
+  position: inherit;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 0;
+}
+main + .footerContainer .footerBox {
+  color: #FFF !important;
+}
+
+/*
+ * mainFooter
+ */
+.mainFooter {
+  margin: 2em;
+  padding-bottom: 1.33em;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+}
+.mainFooter h4{
+margin-bottom: 0;
+}
+main .mainFooter div{
+  display: inline-flex;
+}
+main .mainFooter div p h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+main .mainFooter div p h3 svg {
+  vertical-align: sub;
+}
+main .mainFooter div p small {
+  font-size: 0.6em;
+  font-weight: bold;
+}
+main .mainFooter div + div {
+  margin-left: 3em;
+}
+/*
+ * login
+ */
+.loginContainer {
+  text-align: center;
+  margin: 100px auto 0;
+}
+.loginContainer h1 {
+  margin-bottom: 50px;
+}
+.loginContainer h1 img{
+  width: 200px;
+}
+.loginBox {
+  text-align: center;
+  margin: 2% auto 0;
+  background-color: #fff;
+  padding: 30px 100px;
+  width: 30%;
+}
+.loginContainer footer {
+  margin: 2vw auto;
+}
+.loginContainer footer small{
+  font-size: .875rem;
+
+}
+.loginContainer [role="button"]{
+  padding:8px 50px !important;
+  width: 300px;
+
+}
+.submitArea {
+  text-align: center;
+  margin: 10% auto;
+}
+
+.textField div {
+  width: 100%;
+}
+
+/*
+ * Account
+ */
+.accountFrom input[type="text"][disabled] {
+  color: #000;
+}
+
+.accountFrom div::before {
+  content: none;
+}
+
+.textField div::after {
+  border-bottom: 2px solid #64B127 !important;
+}
+
+@media screen and (max-width:1100px)  {
+  .loginBox {
+    padding: 30px 50px;
+    width: 50%;
+  }
+}
+@media screen and (max-width:959px) {
+  .menuContainer > div  {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .menuContainer > div > div {
+    height: 100%;
+    background-color: #40464D !important;
+  }
+  .userArea{
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  header h2 img {
+    padding: 2% 0;
+    width: 150px !important;
+  }
+}
+@media screen and (max-width:768px)  {
+  main {
+    padding: 24px !important;
+  }
+  .loginBox {
+    padding: 2% 0;
+    width: 90%;
+  }
+  header h2 {
+    padding: 0 10% 0 0;
+    text-align: center;
+    width: 100%;
+  }
+  header h2 img {
+    padding: 2% 0;
+    width: 150px !important;
+  }
+  main > h2 {
+    text-align: center;
+  }
+  main > div > h3 {
+    text-align: center;
+  }
+  main .mainFooter h4 {
+    margin-bottom: 1em;
+  }
+  main .mainFooter div + div {
+    margin-left: auto;
+  }
+  .userArea span {
+    padding: 0 16px !important;
+  }
+  .menuContainer > div {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .menuContainer > div + div{
+    background-color: #40464D !important;
+  }
+  .actionArea .viewDetail {
+    padding: 5% 0;
+  }
+  .listAccount .table th {
+    width: 100%;
+    display: block;
+  }
+  .listAccount .table td {
+    width: 90%;
+    display: block;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+  .menuContainer .footerContainer {
+    width: 100%;
+  }
+  .menuContainer .footerContainer .footerBox {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    margin: auto 5%;
+  }
+  .blankArea {
+    flex-wrap: wrap;
+  }
+  .blankArea form {
+    width: 100%;
+  }
+  .blankArea .labelSuccess {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+  .blankArea .labelSecondary {
+    width: 100%;
+    min-width: 100%;
+  }
+  .blankArea a + a {
+    margin-left: 0;
+    margin-top: 2em;
+  }
+  /*
+   * Quotation
+   */
+  .listQuotation {
+    margin-top: 20px;
+    display: block;
+  }
+  .listQuotation > div:first-child {
+    width: 92%;
+  }
+  .listQuotation > div:first-child + div {
+    width: 100%;
+  }
+
+  .priceContent .qList th {
+    display: none;
+    width: 100%;
+  }
+  .priceContent .qList td:nth-child(1) {
+    display: block;
+    width: 100%;
+  }
+  .priceContent .qList td:nth-child(2) {
+    display: block;
+    width: 100%;
+  }
+  .priceContent .qList td:nth-child(3) {
+    display: block;
+    width: 100%;
+  }
+  .priceContent .qList td:nth-child(4) {
+    display: block;
+    width: 100%;
+  }
+
+
+  /*
+   * Dashboard
+   */
+  .listDashboard {
+    margin-top: 20px;
+    display: block;
+  }
+  .listDashboard > div:first-child {
+    width: 100%;
+    display: block;
+  }
+  .listDashboard > div:first-child > label {
+    margin: 3%;
+  }
+  .listDashboard > div:first-child + div {
+    width: 92%;
+  }
+  .listDashboard > div:first-child + div h4 {
+    margin:0 0 10px;
+  }
+  .listDashboard > div:first-child + div + div {
+    width: 100%;
+  }
+
+  /*
+   * Construction
+   */
+  .listConstruction {
+    margin-top: 20px;
+    display: block;
+  }
+  .listConstruction > div:first-child {
+    width: 92%;
+  }
+  .listConstruction > div:first-child + div {
+    width: 100%;
+  }
+
+  /*
+   * Product
+   */
+  .listProduct {
+    margin-top: 20px;
+    display: block;
+  }
+  .listProduct > div:first-child {
+    width: 92%;
+  }
+  .listProduct > div:first-child + div {
+    width: 100%;
+  }
+}
