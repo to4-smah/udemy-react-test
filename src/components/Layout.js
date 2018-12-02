@@ -12,12 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Footer from './Footer.js';
-import { Link } from 'react-router-dom';
-import { menuItems, loginItems, logoutItems } from './tileData';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import logo from '../images/logo.svg'
-import logoCompany from '../images/logo_company.png'
+import { menuItems } from './tileData';
 
 const drawerWidth = 240;
 
