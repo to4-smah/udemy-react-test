@@ -39,11 +39,7 @@ function Forgot(props) {
 
     return (
         <div class="loginContainer">
-            <h1>
-                <object>
-                    <img src={logo} alt="棟梁ドットコム" />
-                </object>
-            </h1>
+            <h1>〇〇</h1>
             <div class="loginBox">
                 <form className={classes.textCenter} autoComplete="off" action={"/quotation"} method="get">
                     <h2>パスワードをお忘れの方</h2>
