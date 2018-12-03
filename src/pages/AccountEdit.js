@@ -3,25 +3,18 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux'
 import _ from 'lodash'
 import connect from 'react-redux/es/connect/connect'
-import Time from 'react-time-format'
 import { withStyles } from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
-import PhoneIcon from '@material-ui/icons/Phone'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import Hidden from '@material-ui/core/Hidden'
 import Layout from '../components/Layout'
 import { Mutation } from 'react-apollo'
-import { limitTime, getWeekName } from '../helper'
 import { userInfoData } from '../actions/';
-import { USER_UPDATE_PROFILE } from '../helper/query'
+import { USER_GET_POFILE, USER_UPDATE_PROFILE } from '../helper/query'
 import TextField from '@material-ui/core/TextField';
+import { Query } from 'react-apollo';
+import { Redirect } from 'react-router-dom';
 
 const styles = theme => ({
     margin: {
@@ -66,22 +59,11 @@ class AccountEdit extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            sei: '',
-            mei: '',
-            seiKana: '',
-            meiKana: '',
-            email: '',
-            phoneNumber: '',
-            zipCode: '',
-            todouhuken: '',
-            sikuchouson: '',
-            tatemono: '',
-            tikubanchi: '',
-            residenceType: '',
-            parkingType: '',
-        };
-        this.handleChange = this.handleChange.bind(this);
+        this.sei = React.createRef();
+        this.mei = React.createRef();
+        this.seiKana = React.createRef();
+        this.meiKana = React.createRef();
+        this.phoneNumber = React.createRef();
     }
 
     componentDidMount() {
@@ -93,84 +75,60 @@ class AccountEdit extends Component {
     };
 
     setProfile() {
-
-        const { user } = this.props;
         return(
-            <table class="table">
-                <tr>
-                    <th>氏名(姓)</th>
-                    <td>
-                        <TextField
-                            name="sei"
-                            label="sei"
-                            class="textField"
-                            type="text"
-                            value={ this.state.sei ? this.state.sei : user.sei }
-                            onChange={this.handleChange('sei')}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <th>氏名(名)</th>
-                    <td>
-                        <TextField
-                            name="mei"
-                            label="mei"
-                            class="textField"
-                            type="text"
-                            value={ this.state.mei ? this.state.mei : user.mei }
-                            onChange={this.handleChange('mei')}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <th>フリガナ(姓)</th>
-                    <td>
-                        <TextField
-                            name="seiKana"
-                            label="seiKana"
-                            class="textField"
-                            type="text"
-                            value={ this.state.seiKana ? this.state.seiKana : user.seiKana }
-                            onChange={this.handleChange('seiKana')}
-                        />
-                    </td>
-                </tr>
-                <tr>
-                    <th>フリガナ(名)</th>
-                    <td>
-                        <TextField
-                            name="meiKana"
-                            label="meiKana"
-                            class="textField"
-                            type="text"
-                            value={ this.state.meiKana ? this.state.meiKana : user.meiKana }
-                            onChange={this.handleChange('meiKana')}
-                        />
-                    </td>                
-                </tr>
-            </table>
+            <Query query={USER_GET_POFILE}>
+                {({ data, loading }) => {
+                    if (loading) {
+                        return "Now Loading...";
+                    }
+                    return(
+                        <React.Fragment>
+                            <table class="table userEdit">
+                                <tr>
+                                    <th>氏名(姓)</th>
+                                    <td><input name="sei" label="sei" class="textField" type="text" defaultValue={data.show.sei} ref={this.sei} /></td>
+                                </tr>
+                                <tr>
+                                    <th>氏名(名)</th>
+                                    <td><input name="mei" label="mei" class="textField" type="text" defaultValue={ data.show.mei } ref={this.mei} /></td>
+                                </tr>
+                                <tr>
+                                    <th>フリガナ(姓)</th>
+                                    <td><input name="seiKana" label="seiKana" class="textField" type="text" defaultValue={ data.show.seiKana } ref={this.seiKana} /></td>
+                                </tr>
+                                <tr>
+                                    <th>フリガナ(名)</th>
+                                    <td><input name="meiKana" label="meiKana" class="textField" type="text" defaultValue={ data.show.meiKana } ref={this.meiKana} /></td>                
+                                </tr>
+                                <tr>
+                                    <th>電話番号</th>
+                                    <td><input name="phoneNumber" label="phoneNumber" class="textField" type="text" defaultValue={ data.show.phoneNumber } ref={this.phoneNumber} /></td>                
+                                </tr>
+                            </table>
+                        </React.Fragment>
+                    )
+                }}
+            </Query>
+            
         )
     }
-
 
     render() {
         const { classes } = this.props;
 
         return (
             <Mutation mutation={USER_UPDATE_PROFILE}>
-                {(update, { data }) => (
+                {(update) => (
                     <Layout>
                         <h2>お客様情報</h2>   
-                        <form className={classes.textCenter}　onSubmit={e => {
+                        <form className={classes.textCenter} action="/account/thanks"　onSubmit={e => {
                                 e.preventDefault();
                                 update({ variables: { 
-                                    sei: this.state.sei,
-                                    mei: this.state.mei,
-                                    seiKana: this.state.seiKana,
-                                    meiKana: this.state.meiKana,
-                                    phoneNumber: this.state.phoneNumber,
-                                    email: this.state.email
+                                    sei: this.sei.current.value,
+                                    mei: this.mei.current.value,
+                                    seiKana: this.seiKana.current.value,
+                                    meiKana: this.meiKana.current.value,
+                                    phoneNumber: this.phoneNumber.current.value
                                  } });
                             }}>
                             <FormControl class="formControl">
@@ -198,12 +156,6 @@ AccountEdit.propTypes = {
 const mapStateProps = (state) => {
     const addresses = state.events.addresses ? state.events.addresses[0] : '';
     const user = {
-        sei:           state.events.sei,
-        mei:           state.events.mei,
-        seiKana:       state.events.seiKana,
-        meiKana:       state.events.meiKana,
-        email:         state.events.email,
-        phoneNumber:   state.events.phoneNumber,
         zipCode:       addresses ? state.events.addresses[0].zipCode : '',
         todouhuken:    addresses ? state.events.addresses[0].todouhuken : '',
         sikuchouson:   addresses ? state.events.addresses[0].sikuchouson : '',

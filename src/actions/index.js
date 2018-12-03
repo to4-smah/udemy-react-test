@@ -17,7 +17,6 @@ import {
     READ_ALL_ESTIMATE,
     REQUEST_ESTIMATE
 } from './actionType'
-import client from '../helper/client'
 
 // Login
 export const loginSuccess = () => async dispatch => {

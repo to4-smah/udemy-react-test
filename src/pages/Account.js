@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Layout from '../components/Layout';
 import { userInfoData } from '../actions';
+import { Query } from 'react-apollo';
+import { USER_GET_POFILE } from '../helper/query';
 
 const styles = theme => ({
     margin: {
@@ -51,28 +53,36 @@ class Account extends React.Component {
     }
 
     userInfoResult() {
-        const { events } = this.props;
-
-        return (
-            <table class="table">
-                <tr><th>氏名</th><td>{ events.sei && events.sei } { events.mei && events.mei }</td></tr>
-                <tr><th>フリガナ</th><td>{ events.seiKana && events.seiKana } { events.meiKana && events.meiKana }</td></tr>
-                <tr><th>メールアドレス</th><td>{ events.email && events.email }</td></tr>
-                <tr><th>電話番号</th><td>{ events.phoneNumber && events.phoneNumber }</td></tr>
-                <tr><th>郵便番号</th><td>{ events.zipCode && events.zipCode }</td></tr>
-                <tr>
-                    <th>住所</th>
-                    <td>
-                        { events.todouhuken && events.todouhuken }
-                        { events.sikuchouson && events.sikuchouson }
-                        { events.tatemono && events.tatemono }
-                        { events.tikubanchi && events.tikubanchi }
-                    </td>
-                </tr>
-                <tr><th>住居タイプ</th><td>{ events.residenceType && events.residenceType }</td></tr>
-                <tr><th>駐車場</th><td>{ events.parkingType && events.parkingType }</td></tr>
-            </table>
+        return(
+            <Query query={USER_GET_POFILE}>
+                {props => {
+                    if (props.loading) {
+                        return "Now Loading...";
+                    }
+                    const user = props.data.show;
+                    return (
+                        <table class="table">
+                            <tr><th>氏名</th><td>{ user.sei } { user.mei }</td></tr>
+                            <tr><th>フリガナ</th><td>{ user.seiKana } { user.meiKana }</td></tr>
+                            <tr><th>電話番号</th><td>{ user.phoneNumber }</td></tr>
+                            {/* <tr><th>郵便番号</th><td>{ events.zipCode && events.zipCode }</td></tr>
+                            <tr>
+                                <th>住所</th>
+                                <td>
+                                    { events.todouhuken && events.todouhuken }
+                                    { events.sikuchouson && events.sikuchouson }
+                                    { events.tatemono && events.tatemono }
+                                    { events.tikubanchi && events.tikubanchi }
+                                </td>
+                            </tr>
+                            <tr><th>住居タイプ</th><td>{ events.residenceType && events.residenceType }</td></tr>
+                            <tr><th>駐車場</th><td>{ events.parkingType && events.parkingType }</td></tr> */}
+                        </table>
+                    )
+                }}
+            </Query>
         )
+        
     }
 
     render() {

@@ -44,7 +44,7 @@ export const USER_GET_POFILE = gql`
 
 // 未発注
 export const ESTIMATE_GET_LIST = gql`
-    query{
+    query estimation {
         estimations(status: 0, first: 5){
             totalCount
             pageInfo{
@@ -351,14 +351,7 @@ export const ESTIMATE_CANCEL_REQUEST_STATUS = gql`
     `;
 
 export const USER_UPDATE_PROFILE = gql`
-    mutation (
-        $sei: String, 
-        $seiKana: String, 
-        $mei: String, 
-        $meiKana: String, 
-        $phoneNumber: String, 
-        
-    ) {
+    mutation ( $sei: String, $seiKana: String, $mei: String, $meiKana: String, $phoneNumber: String ) {
         update(input: {
             sei: $sei
             seiKana: $seiKana
@@ -371,11 +364,10 @@ export const USER_UPDATE_PROFILE = gql`
             seiKana
             mei
             meiKana
-            birthDate
             phoneNumber
             id
             name
-            email
         }
     }
-    `;
+    `
+    ;
